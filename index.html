@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Swetha V | Electronics, RF and Machine Learning</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#eef2f6; --grid:#d9e1ea; --ink:#16213a; --muted:#546079;
+  --signal:#2b3be0; --amber:#b86e00; --line:#c4cfdc; --surface:#f8fafc;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0f1626; --grid:#18223a; --ink:#e6ebf5; --muted:#9aa6bf;
+    --signal:#7f8dff; --amber:#f0b04a; --line:#2a3654; --surface:#141d33; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0f1626; --grid:#18223a; --ink:#e6ebf5; --muted:#9aa6bf;
+  --signal:#7f8dff; --amber:#f0b04a; --line:#2a3654; --surface:#141d33; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{
+  margin:0;min-height:100%;background-color:var(--paper);color:var(--ink);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:32px 32px;
+  font:400 1.0625rem/1.65 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+h1,h2,h3{font-family:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;line-height:1.1;margin:0}
+a{color:var(--signal);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:2px}
+.wrap{max-width:900px;margin:0 auto;padding:0 clamp(1.25rem,5vw,2.5rem)}
+nav{display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;padding:1.25rem 0;font-weight:500}
+nav a{color:var(--ink);text-decoration:none}
+nav a:hover{color:var(--signal)}
+nav .spacer{flex:1}
+#theme{background:none;border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:.3rem .85rem;font:inherit;font-size:.9rem;cursor:pointer}
+.hero{padding:clamp(2.5rem,9vw,6rem) 0 2rem}
+h1{font-size:clamp(3.2rem,12vw,7rem);font-weight:700;letter-spacing:-.03em}
+.lede{max-width:34em;font-size:clamp(1.15rem,2.6vw,1.4rem);line-height:1.5;margin:1.25rem 0 0}
+.facts{margin:1.25rem 0 0;color:var(--muted);font-size:.98rem}
+.scope{margin:2.5rem 0 0;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:.5rem .5rem .25rem}
+.scope svg{display:block;width:100%;height:auto}
+.scope figcaption{color:var(--muted);font-size:.88rem;padding:.25rem .5rem .5rem}
+.scope .key{display:inline-block;width:1.4em;height:3px;vertical-align:middle;margin-right:.35em}
+section{padding:3.5rem 0 .5rem}
+h2{font-size:clamp(1.8rem,4.5vw,2.4rem);font-weight:700;letter-spacing:-.02em;margin-bottom:1.5rem}
+.project{display:grid;grid-template-columns:8.5rem 1fr;gap:.25rem 2rem;padding:1.6rem 0;border-top:1px solid var(--line)}
+.project:last-child{border-bottom:1px solid var(--line)}
+.when{color:var(--muted);font-size:.95rem;padding-top:.3rem}
+h3{font-size:1.35rem;font-weight:700;letter-spacing:-.01em}
+.project ul{margin:.7rem 0 0;padding-left:1.1rem}
+.project li{margin:.35rem 0;max-width:62ch}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin:.8rem 0 0;padding:0;list-style:none}
+.tags li{margin:0;border:1px solid var(--line);background:var(--surface);border-radius:4px;padding:.1rem .55rem;font-size:.84rem;color:var(--muted)}
+.status{color:var(--amber);font-weight:500}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1.75rem 2.5rem}
+.skills h3{font-size:1.1rem;margin-bottom:.4rem}
+.skills p{margin:0;color:var(--muted)}
+.edu p{margin:.2rem 0;max-width:62ch}
+.contact{padding-bottom:4rem}
+.contact .big{font-family:"Bricolage Grotesque",Arial,sans-serif;font-size:clamp(1.4rem,5vw,2.4rem);font-weight:700;word-break:break-word}
+footer{border-top:1px solid var(--line);padding:1.5rem 0 2rem;color:var(--muted);font-size:.9rem;background:var(--paper)}
+@media (max-width:640px){.project{grid-template-columns:1fr}.when{padding-top:0}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav aria-label="Main">
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+    <span class="spacer"></span>
+    <button id="theme" type="button" aria-label="Switch color theme">Theme</button>
+  </nav>
+
+  <header class="hero">
+    <h1>Swetha V</h1>
+    <p class="lede">I build systems that sit between a radio wave and a neural network: RF and FPGA hardware on one side, machine learning pipelines on the other.</p>
+    <p class="facts">B.Tech in Electronics and Communication Engineering, minor in AI and ML, SASTRA Deemed University. Graduating May 2027. Based in Coimbatore, India.</p>
+    <figure class="scope">
+      <svg id="wave" viewBox="0 0 1000 150" role="img" aria-label="A continuous sine wave and its stepped, sampled version">
+        <line x1="0" y1="75" x2="1000" y2="75" stroke="var(--line)" stroke-width="1"/>
+        <path id="analog" fill="none" stroke="var(--signal)" stroke-width="3" stroke-linecap="round"/>
+        <path id="sampled" fill="none" stroke="var(--amber)" stroke-width="2.5"/>
+      </svg>
+      <figcaption><span class="key" style="background:var(--signal)"></span>Continuous signal (hardware) &nbsp; <span class="key" style="background:var(--amber)"></span>Sampled version (software)</figcaption>
+    </figure>
+  </header>
+
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <article class="project">
+      <div class="when">2026, ongoing</div>
+      <div>
+        <h3>Explainable and fairness-aware stroke risk prediction</h3>
+        <ul>
+          <li>End-to-end Python pipeline covering preprocessing, feature engineering and evaluation on clinical and demographic health data.</li>
+          <li>SHAP and LIME show which features drive each prediction, so results can be questioned by clinicians.</li>
+          <li>Bias and disparity metrics compared across age and gender subgroups to reduce unfair predictions.</li>
+        </ul>
+        <ul class="tags"><li>Python</li><li>SHAP</li><li>LIME</li><li>Fairness metrics</li></ul>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="when">2025 to 2026</div>
+      <div>
+        <h3>Multimodal emotion recognition</h3>
+        <ul>
+          <li>Started with an MFCC and SVM speech baseline on RAVDESS, then extended it to late fusion of audio, text and vision models (DistilBERT, BERT, ViT, Random Forest).</li>
+          <li>Reached 96% accuracy on 6 of 7 emotion classes. Evaluated with precision, recall and F1, and tuned with augmentation and hyperparameter search.</li>
+        </ul>
+        <ul class="tags"><li>Python</li><li>scikit-learn</li><li>TensorFlow</li><li>HuggingFace</li><li>ViT</li></ul>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="when">2025</div>
+      <div>
+        <h3>AES-128 pipelined engine on FPGA</h3>
+        <ul>
+          <li>18 modules in an 11-stage pipeline on an Intel DE10-Lite, reaching about 97 MHz Fmax and 6.4 Gbps, 11x faster than an iterative baseline.</li>
+          <li>Python test toolchain that checks the design against NIST FIPS-197 vectors automatically.</li>
+          <li>20-page report covering architecture, timing analysis and resource tradeoffs.</li>
+        </ul>
+        <ul class="tags"><li>SystemVerilog</li><li>Quartus Prime</li><li>Python</li></ul>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="when">2024</div>
+      <div>
+        <h3>4x4 reconfigurable intelligent surface for 5G beam steering</h3>
+        <ul>
+          <li>PIN-diode-controlled unit cells designed and simulated at 3.5 GHz, driven by a Raspberry Pi 5 controller, with radar cross-section analysis.</li>
+        </ul>
+        <ul class="tags"><li>CST Studio Suite</li><li>PIN diodes</li><li>Raspberry Pi</li></ul>
+      </div>
+    </article>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <article class="project">
+      <div class="when">2026</div>
+      <div>
+        <h3>Summer research intern, IIT Palakkad</h3>
+        <p style="margin:.2rem 0 0;color:var(--muted)">Department of Electrical Engineering, RF and microwave component design</p>
+        <ul>
+          <li>Extended a published metasurface design to dual-band RF energy harvesting, simulated in ANSYS HFSS and CST Studio Suite.</li>
+          <li>Automated data analysis and reporting in Python.</li>
+        </ul>
+      </div>
+    </article>
+    <article class="project">
+      <div class="when">Ongoing</div>
+      <div>
+        <h3>Promotion and Outreach Head, TECS</h3>
+        <p style="margin:.2rem 0 0;color:var(--muted)">The Electronics Club of SASTRA</p>
+      </div>
+    </article>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div><h3>Languages</h3><p>Python (proficient), C++, SystemVerilog</p></div>
+      <div><h3>Machine learning</h3><p>Deep learning, NLP, computer vision, TensorFlow and Keras</p></div>
+      <div><h3>Software practice</h3><p>OOP, data structures and algorithms, automated testing, technical documentation, pipeline automation</p></div>
+      <div><h3>Engineering tools</h3><p>ANSYS HFSS, CST Studio Suite, MATLAB, FPGA, Git, Jupyter, Colab</p></div>
+    </div>
+  </section>
+
+  <section id="education" class="edu">
+    <h2>Education</h2>
+    <p><strong>SASTRA Deemed University</strong>, Thanjavur</p>
+    <p>B.Tech in Electronics and Communication Engineering, minor in AI and ML. CGPA 8.777 / 10. Expected May 2027.</p>
+    <p style="color:var(--muted)">Avila Convent Matriculation Higher Secondary School: Class XII 93%, Class X 90%.</p>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>I'm looking for software developer roles and applied AI work. Email me:</p>
+    <p class="big"><a href="mailto:swethavinodhkumar@gmail.com">swethavinodhkumar@gmail.com</a></p>
+  </section>
+</div>
+<footer><div class="wrap">Swetha V, Coimbatore, Tamil Nadu</div></footer>
+
+<script>
+(function(){
+  var a=document.getElementById('analog'), s=document.getElementById('sampled');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function f(x,t){return 75-38*Math.sin(x/70+t)*(0.65+0.35*Math.sin(x/230-t*0.5));}
+  function draw(t){
+    var d='M0 '+f(0,t).toFixed(1);
+    for(var x=4;x<=1000;x+=4){d+=' L'+x+' '+f(x,t).toFixed(1);}
+    a.setAttribute('d',d);
+    var p='',step=28;
+    for(var x=0;x<1000;x+=step){
+      var y=f(x+step/2,t).toFixed(1);
+      p+=(x===0?'M':' L')+x+' '+y+' L'+Math.min(x+step,1000)+' '+y;
+    }
+    s.setAttribute('d',p);
+  }
+  var t=0;
+  function loop(){t+=0.012;draw(t);requestAnimationFrame(loop);}
+  draw(0);
+  if(!reduce){requestAnimationFrame(loop);}
+  var btn=document.getElementById('theme'),root=document.documentElement;
+  btn.addEventListener('click',function(){
+    var dark=root.getAttribute('data-theme')==='dark'||(root.getAttribute('data-theme')===null&&window.matchMedia('(prefers-color-scheme: dark)').matches);
+    root.setAttribute('data-theme',dark?'light':'dark');
+  });
+})();
+</script>
+</body>
+</html>
